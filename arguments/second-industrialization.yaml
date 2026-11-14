@@ -1,0 +1,369 @@
+argmap: 1
+title: Could a collapsed civilization industrialize a second time?
+conclusion: never-again
+
+# Drafted by Claude as the first test of the format, 13 Nov 2026.
+# Trust labels are deliberately conservative: "corroborated" is used only where
+# a source was actually checked, and the note says which.
+# Claims not defined here come from the library in claims/.
+
+terms:
+  collapse: A global catastrophe that ends industrial production and long-distance trade and leaves survivors at pre-industrial technology. Ruins, scrap and some books remain.
+  easy-fuel: "Coal, oil and gas that people with pre-industrial tools can reach: surface seams, shallow pits, seeps and shallow wells."
+
+claims:
+  never-again:
+    text: After a {collapse}, humanity could never {industrialize#full} again.
+    because: [needed-easy-fuel, easy-fuel-gone, no-substitute, same-inputs]
+
+  # --- Premise 1 -----------------------------------------------------------
+  needed-easy-fuel:
+    text: The first time, no society managed to {industrialize#full} without burning {easy-fuel}.
+    because: [coal-drove-takeoff, no-fossil-free-case]
+
+  # --- Premise 2 -----------------------------------------------------------
+  easy-fuel-gone:
+    text: The {easy-fuel} has been used up, and what is left needs industrial machinery to reach.
+    because: [easy-coal-mined-out, oil-needs-deep-drilling]
+
+  easy-coal-mined-out:
+    text: The coal that hand tools can reach, from outcrops, bell pits and drift mines, has been worked out in the coalfields that the first industrial countries mined.
+    because: [early-mining-was-shallow, british-mining-went-deep, other-early-coalfields-worked-out]
+    note: "Was a bet (assumed): Plausible for the old coalfields of Britain and Europe. Not checked for the rest of the world."
+
+  # --- Premise 3 -----------------------------------------------------------
+  no-substitute:
+    text: No other energy source within survivors' reach could carry a society all the way to {industrialize#full|full industrialization}.
+    because: [charcoal-cannot-scale, water-wind-too-small, modern-renewables-need-industry]
+
+  charcoal-cannot-scale:
+    text: Wood and charcoal cannot scale, because fuel forests compete with farmland long before output reaches industrial volume.
+    bet:
+      trust: assumed
+      note: The land-competition argument is common in writing on collapse. No numbers checked.
+    evidence:
+      - kind: reference
+        says: Biomass needs so much land that it competes with agriculture, so it could not power an industrial revolution while population grows.
+        source: https://andresclimate.substack.com/p/keep-the-coal-in-the-ground-we-might
+        by: claude-fable-5.2
+        date: 2026-11-14
+      - kind: reference
+        says: Charcoal from coppiced woodland was a sustainable but ultimately limited source, which capped iron output.
+        source: https://htt.herefordshire.gov.uk/herefordshires-past/the-post-medieval-period/agriculture-and-industry/herefordshire-industry/iron
+        by: claude-fable-5.2
+        date: 2026-11-14
+      - kind: statistic
+        stance: against
+        says: Brazil produces about 10 million tonnes of pig iron a year using charcoal, so charcoal does reach industrial volume.
+        value: 10
+        unit: Mt per year
+        period: about 2007
+        source: https://fao.org/4/i1321e/i1321e04.pdf
+        by: claude-fable-5.2
+        date: 2026-11-14
+
+  water-wind-too-small:
+    text: Water wheels and windmills give too little power, in too few places, to run heavy industry.
+    bet:
+      trust: assumed
+
+  modern-renewables-need-industry:
+    text: Solar panels, nuclear plants and large turbines cannot be built without an industrial base that already exists.
+    bet:
+      trust: assumed
+      note: From general knowledge; nothing checked.
+
+  # --- Premise 4: unstated in the usual argument ----------------------------
+  same-inputs:
+    text: After a {collapse}, a second attempt would need the same inputs as the first.
+    bet:
+      trust: assumed
+      note: Hidden premise. The usual statement of the argument never says this, but the conclusion does not follow without it.
+
+  # --- Objections ----------------------------------------------------------
+  early-industry-fossil-free:
+    text: Britain began to {industrialize#early} on water and charcoal, so a society can {industrialize#early|industrialize} without fossil fuel.
+    because: [mills-ran-on-water]
+
+  surface-coal-remains:
+    text: Large coal seams still lie close enough to the surface to be dug without industrial machinery.
+    because: [surface-mines-reach-80m, us-coal-two-thirds-surface, hand-tools-strip-20m]
+    note: "Was a bet (assumed): Surface mines today work seams within roughly 50 to 80 m of the surface, so shallow coal clearly exists. Whether hand tools can strip that much overburden is unchecked."
+
+  slow-green-path:
+    text: Hydropower and charcoal could carry a society from {industrialize#early|early industry} to {industrialize#full|full industrialization}, only more slowly.
+    because: [hydro-is-old-tech, charcoal-iron-works-today]
+
+  hydro-is-old-tech:
+    text: Hydroelectric generators and electric motors are 19th-century inventions that need no fossil fuel to build or run.
+    bet:
+      trust: assumed
+      note: Dartnell sketches an electrified path that largely bypasses combustion. Nobody has done it.
+
+  head-start:
+    text: After a {collapse}, survivors would start far ahead of where the first attempt started, so they would need less.
+    because: [scrap-everywhere, books-survive]
+
+  scrap-everywhere:
+    text: Refined steel, copper and aluminium would lie in the ruins, needing far less energy to rework than ore needs to smelt.
+    bet:
+      trust: assumed
+      note: From general knowledge; nothing checked. How much scrap survives centuries of rust is also unknown.
+
+  books-survive:
+    text: Enough written knowledge would survive to skip centuries of trial and error.
+    bet:
+      trust: assumed
+      note: Depends on the kind of collapse. Paper and digital media both decay.
+
+# One-way attacks: if the attacker stands, the target falls.
+attacks:
+  - [early-industry-fossil-free, needed-easy-fuel]
+  - [coal-took-over, early-industry-fossil-free]
+
+# Open disputes: each side attacks the other, so neither is settled by the map.
+disputes:
+  - [easy-coal-mined-out, surface-coal-remains]
+  - [no-substitute, slow-green-path]
+  - [same-inputs, head-start]
+log:
+  - at: 2026-11-13
+    by: claude-fable-5.2
+    did: refine
+    claim: easy-coal-mined-out
+    note: 'Split by region, and replaced "largely" with named workings. Weak point: mines also went deep because demand outgrew shallow supply, so "went deep" does not strictly show the shallow coal was exhausted.'
+    verdict: contested
+    bets: 17
+    sharp: 4
+  - at: 2026-11-13
+    by: claude-fable-5.2
+    did: refine
+    claim: surface-coal-remains
+    note: Separated what is documented (shallow coal exists and is mined today) from what is not (whether it can be reached without machines).
+    verdict: contested
+    bets: 19
+    sharp: 7
+  - at: 2026-11-14
+    by: claude-fable-5.2
+    did: reword
+    claim: easy-coal-mined-out
+    note: The check flagged "industrialize" used outside its pinned definition. Reworded to avoid the word.
+    verdict: contested
+    bets: 19
+    sharp: 7
+  - at: 2026-11-14
+    by: claude-fable-5.2
+    did: reword
+    claim: other-early-coalfields-worked-out
+    note: The check flagged "industrialize" used outside its pinned definition. Reworded to avoid the word.
+    verdict: contested
+    bets: 19
+    sharp: 7
+  - at: 2026-11-14
+    by: claude-fable-5.2
+    did: evidence
+    claim: surface-mines-reach-80m
+    note: "For (reference): Coal deposits must lie within 50 to 80 m of the surface to be surface mined."
+    verdict: contested
+    bets: 19
+    sharp: 7
+  - at: 2026-11-14
+    by: claude-fable-5.2
+    did: evidence
+    claim: surface-mines-reach-80m
+    note: "For (reference): Surface mining is used when a seam is usually within 200 feet (about 60 m) of the surface."
+    verdict: contested
+    bets: 19
+    sharp: 7
+  - at: 2026-11-14
+    by: claude-fable-5.2
+    did: evidence
+    claim: surface-mines-reach-80m
+    note: "For (reference): Seams shallower than about 55 m are usually surface mined; those at 55 to 90 m are usually mined underground."
+    verdict: contested
+    bets: 19
+    sharp: 7
+  - at: 2026-11-14
+    by: claude-fable-5.2
+    did: evidence
+    claim: us-coal-two-thirds-surface
+    note: "For (statistic): More than two-thirds of US coal is mined by surface mining."
+    verdict: contested
+    bets: 19
+    sharp: 7
+  - at: 2026-11-14
+    by: claude-fable-5.2
+    did: evidence
+    claim: early-mining-was-shallow
+    note: "For (reference): Early coal extraction was small-scale, from coal on or very near the surface, by drift mining and bell pits."
+    verdict: contested
+    bets: 19
+    sharp: 7
+  - at: 2026-11-14
+    by: claude-fable-5.2
+    did: evidence
+    claim: british-mining-went-deep
+    note: "For (reference): Extraction moved from surface workings to deep shaft mining as the Industrial Revolution progressed."
+    verdict: contested
+    bets: 19
+    sharp: 7
+  - at: 2026-11-14
+    by: claude-fable-5.2
+    did: evidence
+    claim: coal-drove-takeoff
+    note: "For (reference): Around 1842 coal became the main energy source for the Industrial Revolution, with the expanding railways a prime user."
+    verdict: contested
+    bets: 19
+    sharp: 7
+  - at: 2026-11-14
+    by: claude-fable-5.2
+    did: evidence
+    claim: coal-took-over
+    note: "For (reference): Around 1842 coal became the main energy source for the Industrial Revolution, with the expanding railways a prime user."
+    verdict: contested
+    bets: 19
+    sharp: 7
+  - at: 2026-11-14
+    by: claude-fable-5.2
+    did: evidence
+    claim: coal-took-over
+    note: "For (reference): Coke let Darby build much larger furnaces than charcoal could support, at lower cost."
+    verdict: contested
+    bets: 19
+    sharp: 7
+  - at: 2026-11-14
+    by: claude-fable-5.2
+    did: evidence
+    claim: mills-ran-on-water
+    note: "For (reference): Cromford Mill, built by Arkwright in 1771, was the first successful water-powered cotton spinning mill."
+    verdict: contested
+    bets: 19
+    sharp: 7
+  - at: 2026-11-14
+    by: claude-fable-5.2
+    did: evidence
+    claim: mills-ran-on-water
+    note: "For (reference): Arkwright started the first cotton spinning mill worked by water power at Cromford; its foundation date is 1771."
+    verdict: contested
+    bets: 19
+    sharp: 7
+  - at: 2026-11-14
+    by: claude-fable-5.2
+    did: evidence
+    claim: mills-ran-on-water
+    note: "For (reference): Before 1709 cast iron was made by smelting ore with charcoal in the blast furnace, the charcoal coming from coppiced woodland."
+    verdict: contested
+    bets: 19
+    sharp: 7
+  - at: 2026-11-14
+    by: claude-fable-5.2
+    did: evidence
+    claim: mills-ran-on-water
+    note: "For (reference): Abraham Darby first produced marketable iron in a coke-fired furnace in 1709."
+    verdict: contested
+    bets: 19
+    sharp: 7
+  - at: 2026-11-14
+    by: claude-fable-5.2
+    did: evidence
+    claim: charcoal-iron-works-today
+    note: "For (statistic): Brazil produces about 10 million tonnes of pig iron a year using charcoal."
+    verdict: contested
+    bets: 19
+    sharp: 7
+  - at: 2026-11-14
+    by: claude-fable-5.2
+    did: evidence
+    claim: charcoal-iron-works-today
+    note: "For (statistic): Almost 40% of the pig iron produced in Brazil is based on charcoal."
+    verdict: contested
+    bets: 19
+    sharp: 7
+  - at: 2026-11-14
+    by: claude-fable-5.2
+    did: evidence
+    claim: charcoal-iron-works-today
+    note: "For (statistic): Charcoal accounts for 30% of Brazilian pig iron production."
+    verdict: contested
+    bets: 19
+    sharp: 7
+  - at: 2026-11-14
+    by: claude-fable-5.2
+    did: evidence
+    claim: oil-needs-deep-drilling
+    note: "For (reference): Dartnell writes that the most easily drained crude oil has already been consumed."
+    verdict: contested
+    bets: 19
+    sharp: 7
+  - at: 2026-11-14
+    by: claude-fable-5.2
+    did: evidence
+    claim: charcoal-cannot-scale
+    note: "For (reference): Biomass needs so much land that it competes with agriculture, so it could not power an industrial revolution while population grows."
+    verdict: contested
+    bets: 19
+    sharp: 7
+  - at: 2026-11-14
+    by: claude-fable-5.2
+    did: evidence
+    claim: charcoal-cannot-scale
+    note: "For (reference): Charcoal from coppiced woodland was a sustainable but ultimately limited source, which capped iron output."
+    verdict: contested
+    bets: 19
+    sharp: 7
+  - at: 2026-11-14
+    by: claude-fable-5.2
+    did: evidence
+    claim: charcoal-cannot-scale
+    note: "Against (statistic): Brazil produces about 10 million tonnes of pig iron a year using charcoal, so charcoal does reach industrial volume."
+    verdict: contested
+    bets: 19
+    sharp: 7
+  - at: 2026-11-14
+    by: claude-fable-5.2
+    did: check
+    claim: coal-drove-takeoff
+    note: "trust: track-record"
+    verdict: contested
+    bets: 19
+    sharp: 7
+  - at: 2026-11-14
+    by: claude-fable-5.2
+    did: check
+    claim: coal-took-over
+    note: "trust: track-record"
+    verdict: contested
+    bets: 19
+    sharp: 7
+  - at: 2026-11-14
+    by: claude-fable-5.2
+    did: check
+    claim: oil-needs-deep-drilling
+    note: "trust: track-record"
+    verdict: contested
+    bets: 19
+    sharp: 7
+  - at: 2026-11-14
+    by: claude-fable-5.2
+    did: check
+    claim: no-fossil-free-case
+    note: "trust: assumed"
+    verdict: contested
+    bets: 19
+    sharp: 7
+  - at: 2026-11-14
+    by: claude-fable-5.2
+    did: check
+    claim: modern-renewables-need-industry
+    note: "trust: assumed"
+    verdict: contested
+    bets: 19
+    sharp: 7
+  - at: 2026-11-14
+    by: claude-fable-5.2
+    did: check
+    claim: scrap-everywhere
+    note: "trust: assumed"
+    verdict: contested
+    bets: 19
+    sharp: 7
