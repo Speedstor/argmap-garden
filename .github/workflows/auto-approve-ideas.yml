@@ -74,6 +74,8 @@ jobs:
         if: steps.check.outputs.ok == 'true'
         run: gh pr review "$PR" --repo "$REPO" --approve --body "Notepad changes from someone with access are approved automatically."
 
+      # A merge commit, because it is the one merge button the setup guide leaves
+      # switched on (docs/github-setup.md, step 3). A squash is refused there.
       - name: Merge
         if: steps.check.outputs.ok == 'true'
-        run: gh pr merge "$PR" --repo "$REPO" --squash
+        run: gh pr merge "$PR" --repo "$REPO" --merge
