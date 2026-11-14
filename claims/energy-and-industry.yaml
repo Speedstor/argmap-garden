@@ -1,0 +1,193 @@
+# Claims about fuel, energy and industrial history that more than one argument can draw on.
+# A claim here is pulled into an argument only when that argument rests on it or is opposed by it.
+
+terms:
+  industrialize#full: Reach machine manufacturing and energy use per person comparable to the mid-20th century.
+  industrialize#early: "Reach mechanized production comparable to Britain around 1800: factories driven by water wheels and early steam, iron made in quantity."
+
+claims:
+  coal-drove-takeoff:
+    text: Britain's industrial take-off ran on coal, which by the 1840s was the main energy source for industry and rail.
+    bet:
+      trust: track-record
+      note: One source checked (attached). Wrigley and Allen are cited from memory and were not opened.
+    evidence:
+      - kind: reference
+        says: Around 1842 coal became the main energy source for the Industrial Revolution, with the expanding railways a prime user.
+        source: https://wikipedia.classicistranieri.com/en/articles/h/i/s/History_of_coal_mining.html
+        origin: Wikipedia, "History of coal mining"
+        by: claude-fable-5.2
+        date: 2026-11-14
+
+  coal-took-over:
+    text: Water and charcoal carried only the first decades; growth after about 1830, in railways, cheap iron and steam at scale, ran on coal and coke.
+    bet:
+      trust: track-record
+      note: The sources attached back coal's dominance by the 1840s and coke's advantage over charcoal. The date "after about 1830" is not sourced.
+    evidence:
+      - kind: reference
+        says: Around 1842 coal became the main energy source for the Industrial Revolution, with the expanding railways a prime user.
+        source: https://wikipedia.classicistranieri.com/en/articles/h/i/s/History_of_coal_mining.html
+        origin: Wikipedia, "History of coal mining"
+        by: claude-fable-5.2
+        date: 2026-11-14
+      - kind: reference
+        says: Coke let Darby build much larger furnaces than charcoal could support, at lower cost.
+        source: https://www.britannica.com/biography/Abraham-Darby
+        by: claude-fable-5.2
+        date: 2026-11-14
+
+  no-fossil-free-case:
+    text: Every society that has reached {industrialize#full|full industrialization} burned fossil fuels on the way.
+    bet:
+      trust: assumed
+      note: "From general knowledge; nothing checked. The cases are also not independent: each country copied the ones before it."
+
+  mills-ran-on-water:
+    text: The first cotton mills of the 1770s ran on water wheels, and iron was smelted with charcoal for centuries before coke.
+    bet:
+      trust: corroborated
+      note: Standard history. Arkwright's Cromford mill (1771) was water-powered.
+    evidence:
+      - kind: reference
+        says: Cromford Mill, built by Arkwright in 1771, was the first successful water-powered cotton spinning mill.
+        source: https://cromfordmills.org.uk/learning/mill-history/
+        by: claude-fable-5.2
+        date: 2026-11-14
+      - kind: reference
+        says: Arkwright started the first cotton spinning mill worked by water power at Cromford; its foundation date is 1771.
+        source: https://her.derbyshire.gov.uk/Monument/MDR3068
+        by: claude-fable-5.2
+        date: 2026-11-14
+      - kind: reference
+        says: Before 1709 cast iron was made by smelting ore with charcoal in the blast furnace, the charcoal coming from coppiced woodland.
+        source: https://htt.herefordshire.gov.uk/herefordshires-past/the-post-medieval-period/agriculture-and-industry/herefordshire-industry/iron
+        by: claude-fable-5.2
+        date: 2026-11-14
+      - kind: reference
+        says: Abraham Darby first produced marketable iron in a coke-fired furnace in 1709.
+        source: https://www.britannica.com/biography/Abraham-Darby
+        by: claude-fable-5.2
+        date: 2026-11-14
+
+  charcoal-iron-works-today:
+    text: Charcoal already smelts iron at industrial scale; Brazil makes millions of tonnes of pig iron a year with it.
+    bet:
+      trust: corroborated
+      note: FAO and Brazilian industry figures put it near 10 Mt a year at its peak, about a third of national output.
+    evidence:
+      - kind: statistic
+        says: Brazil produces about 10 million tonnes of pig iron a year using charcoal.
+        value: 10
+        unit: Mt per year
+        sample: Brazilian pig iron made with charcoal
+        period: about 2007
+        source: https://fao.org/4/i1321e/i1321e04.pdf
+        by: claude-fable-5.2
+        date: 2026-11-14
+      - kind: statistic
+        says: Almost 40% of the pig iron produced in Brazil is based on charcoal.
+        value: 40
+        unit: "%"
+        sample: Brazilian pig iron output
+        period: about 1991
+        source: https://www.osti.gov/biblio/140252-commercial-charcoal-manufacture-brazil
+        by: claude-fable-5.2
+        date: 2026-11-14
+      - kind: statistic
+        says: Charcoal accounts for 30% of Brazilian pig iron production.
+        value: 30
+        unit: "%"
+        sample: Brazilian pig iron output
+        period: about 2011
+        source: https://revistapesquisa.fapesp.br/en/carvao-vegetal-sustentavel/
+        by: claude-fable-5.2
+        date: 2026-11-14
+
+  oil-needs-deep-drilling:
+    text: The oil and gas that remain lie deep underground or offshore, beyond pre-industrial drilling.
+    bet:
+      trust: track-record
+      note: "One source checked: a report of Dartnell's essay. The essay itself was not opened."
+    evidence:
+      - kind: reference
+        says: Dartnell writes that the most easily drained crude oil has already been consumed.
+        source: https://www.rashmee.com/?p=7192
+        origin: Lewis Dartnell, "Out of the ashes", Aeon, 2015
+        by: claude-fable-5.2
+        date: 2026-11-14
+
+  early-mining-was-shallow:
+    text: Early British coal mining worked seams at or close to the surface, through outcrops, bell pits and drift mines.
+    bet:
+      trust: track-record
+      note: 'One source checked: the standard history of coal mining (Wikipedia, "History of coal mining").'
+    evidence:
+      - kind: reference
+        says: Early coal extraction was small-scale, from coal on or very near the surface, by drift mining and bell pits.
+        source: https://wikipedia.classicistranieri.com/en/articles/h/i/s/History_of_coal_mining.html
+        origin: Wikipedia, "History of coal mining"
+        by: claude-fable-5.2
+        date: 2026-11-14
+
+  british-mining-went-deep:
+    text: As the Industrial Revolution progressed, British coal mining moved from surface workings to deep shafts.
+    bet:
+      trust: track-record
+      note: Same single source as early-mining-was-shallow.
+    evidence:
+      - kind: reference
+        says: Extraction moved from surface workings to deep shaft mining as the Industrial Revolution progressed.
+        source: https://wikipedia.classicistranieri.com/en/articles/h/i/s/History_of_coal_mining.html
+        origin: Wikipedia, "History of coal mining"
+        by: claude-fable-5.2
+        date: 2026-11-14
+
+  other-early-coalfields-worked-out:
+    text: In the other coalfields mined heavily in the 19th century (the Ruhr, Pennsylvania, Belgium and northern France), the seams hand tools can reach have also been worked out.
+    bet:
+      trust: assumed
+      note: "Not checked. To check: the mining history of each field."
+
+  surface-mines-reach-80m:
+    text: Surface mines today work coal seams lying within about 50 to 80 m of the surface.
+    bet:
+      trust: corroborated
+      note: "Three sources agree on the range: Science ABC (50 to 80 m), the NEED Project (within 200 feet), Wikipedia on coal mining (under about 55 m, sometimes to 90 m)."
+    evidence:
+      - kind: reference
+        says: Coal deposits must lie within 50 to 80 m of the surface to be surface mined.
+        source: https://www.scienceabc.com/innovation/coal-mining.html
+        by: claude-fable-5.2
+        date: 2026-11-14
+      - kind: reference
+        says: Surface mining is used when a seam is usually within 200 feet (about 60 m) of the surface.
+        source: https://need.org/wp-content/uploads/woocommerce_uploads/2024/05/CoalAtAGlance_11x17-sp7c5r.pdf
+        by: claude-fable-5.2
+        date: 2026-11-14
+      - kind: reference
+        says: Seams shallower than about 55 m are usually surface mined; those at 55 to 90 m are usually mined underground.
+        source: Wikipedia, "Coal mining" (read in a mirrored copy)
+        by: claude-fable-5.2
+        date: 2026-11-14
+
+  us-coal-two-thirds-surface:
+    text: More than two-thirds of the coal mined in the United States comes from surface mines.
+    bet:
+      trust: track-record
+      note: 'One source checked: the NEED Project, "Coal at a glance".'
+    evidence:
+      - kind: statistic
+        says: More than two-thirds of US coal is mined by surface mining.
+        value: ">66"
+        unit: "%"
+        sample: coal mined in the United States
+        source: https://need.org/wp-content/uploads/woocommerce_uploads/2024/05/CoalAtAGlance_11x17-sp7c5r.pdf
+        by: claude-fable-5.2
+        date: 2026-11-14
+
+  hand-tools-strip-20m:
+    text: People with hand tools and draft animals can remove 20 m of soil and rock lying over a coal seam.
+    bet:
+      trust: assumed
+      note: "Not checked, and the whole objection turns on it. To check: records of open-cast work before steam shovels, and of canal and railway cuttings dug by hand."
