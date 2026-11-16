@@ -60,6 +60,12 @@ claims:
           - by: claude-fable-5.2
             kind: ai
             date: 2026-11-16
+        outcome: yes
+        resolved: 2026-11-16
+        resolved_by: claude-fable-5.2
+        resolved_kind: ai
+        source: "Run at commit 4c139fd: node trials/check-order.mts '{\"maps\":300,\"seed\":11,\"orGroups\":2}' and the same with seeds 12 and 13"
+        note: shareOfFileOrder for exposure was 0.479, 0.508 and 0.508.
 
   lead-on-public-map:
     text: On the structure and labels of the public map arguments/second-industrialization.yaml, with the truth of its 19 bets drawn at random by label, the {argmap-order} has a {share} of 0.60 or less.
@@ -84,6 +90,12 @@ claims:
           - by: claude-fable-5.2
             kind: ai
             date: 2026-11-16
+        outcome: no
+        resolved: 2026-11-16
+        resolved_by: claude-fable-5.2
+        resolved_kind: ai
+        source: "Run at commit 4c139fd: node trials/check-order.mts '{\"file\":\"arguments/second-industrialization.yaml\",\"maps\":1000,\"seed\":1}'"
+        note: "shareOfFileOrder for exposure was 1.085: 3.10 checks against 2.85 for file order, over 992 flip maps of 1000. Paired, the argmap order took 0.24 more checks than file order, standard error 0.10. All 19 labels read as assumed, so the order had no label to use."
 
   labels-track-failure:
     text: On real maps, bets labelled assumed turn out false at 2 or more times the rate of bets labelled observed or corroborated.
@@ -135,6 +147,12 @@ claims:
           - by: claude-fable-5.2
             kind: ai
             date: 2026-11-16
+        outcome: yes
+        resolved: 2026-11-16
+        resolved_by: claude-fable-5.2
+        resolved_kind: ai
+        source: "Run at commit 4c139fd: node trials/check-order.mts '{\"maps\":300,\"seed\":1,\"orGroups\":2,\"named\":0}' and the same with seed 2"
+        note: shareOfFileOrder for exposure was 0.628 on seed 1 and 0.623 on seed 2, an average of 0.626. With names on the labels the same maps gave 0.484 and 0.461.
 
   labels-go-unnamed:
     text: In the public map arguments/second-industrialization.yaml, 9 of the 19 bets carry a label above assumed with no name on it.
@@ -194,5 +212,29 @@ log:
     claim: lead-on-made-up-maps
     note: "93%: On each of seeds 11, 12 and 13, with 300 made-up maps and 2 lines of support, the script prints a shareOfFileOrder of 0.60 or less for the order named exposure."
     verdict: contested
+    bets: 7
+    sharp: 6
+  - at: 2026-11-16
+    by: claude-fable-5.2
+    did: resolve
+    claim: lead-on-public-map
+    note: "test 1: no"
+    verdict: falls
+    bets: 7
+    sharp: 6
+  - at: 2026-11-16
+    by: claude-fable-5.2
+    did: resolve
+    claim: unnamed-order-slower
+    note: "test 1: yes"
+    verdict: falls
+    bets: 7
+    sharp: 6
+  - at: 2026-11-16
+    by: claude-fable-5.2
+    did: resolve
+    claim: lead-on-made-up-maps
+    note: "test 1: yes"
+    verdict: falls
     bets: 7
     sharp: 6
