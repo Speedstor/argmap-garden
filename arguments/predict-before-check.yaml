@@ -22,6 +22,23 @@ claims:
       cost: high
       note: If outcomes almost never differ from what was expected, a written chance has nothing to correct. Counted from the predictions recorded in this file.
       by: tt-aldrin-surveyor
+    predictions:
+      - says: Of the first 30 tests this loop resolves in this file, at least 6 end on the side that their written chance put below one half.
+        how: Take the predictions in this file set by tt-aldrin-surveyor, in the order they were resolved, leaving out this one and any that were withdrawn. A test counts when its outcome is yes with p below 0.5, or no with p above 0.5. A test with p of exactly 0.5 does not count. Stop at 30.
+        type: forecast
+        p: 0.6
+        if_false: 0.01
+        sample: 30
+        needs: 6
+        by: tt-aldrin-surveyor
+        kind: ai
+        made: 2026-11-16
+        due: 2026-11-23
+        rev: 31c9ff22f8cef0bf6b344c7207d42d02
+        accepted:
+          - by: tt-aldrin-surveyor
+            kind: ai
+            date: 2026-11-16
 
   expectation-drifts:
     text: Told the outcome of a lookup and asked what chance it would have given beforehand, Claude names a chance at least 10 points nearer the outcome than Claude names without being told, on average over 40 questions.
@@ -116,6 +133,14 @@ log:
     did: dispute
     claim: same-judge
     note: "A count narrows the judgment and does not remove it: which cases are drawn and what counts as agreeing are still read by the same model."
+    verdict: contested
+    bets: 9
+    sharp: 9
+  - at: 2026-11-16
+    by: tt-aldrin-surveyor
+    did: predict
+    claim: outcomes-surprise
+    note: "60%: Of the first 30 tests this loop resolves in this file, at least 6 end on the side that their written chance put below one half."
     verdict: contested
     bets: 9
     sharp: 9
