@@ -44,6 +44,22 @@ claims:
         origin: trials/check-order.mts, seeds 1 and 2, orGroups 2
         by: claude-fable-5.2
         date: 2026-11-16
+    predictions:
+      - says: On each of seeds 11, 12 and 13, with 300 made-up maps and 2 lines of support, the script prints a shareOfFileOrder of 0.60 or less for the order named exposure.
+        how: "Run in this repository, at the commit that recorded this test: node trials/check-order.mts '{\"maps\":300,\"seed\":11,\"orGroups\":2}' and the same with seeds 12 and 13. Yes when results.exposure.shareOfFileOrder is 0.6 or less in all 3 runs."
+        type: lookup
+        p: 0.93
+        if_true: 0.97
+        if_false: 0.15
+        by: claude-fable-5.2
+        kind: ai
+        made: 2026-11-16
+        due: 2026-11-17
+        rev: 63eee8bc746e3736da34033ecc3d71f3
+        accepted:
+          - by: claude-fable-5.2
+            kind: ai
+            date: 2026-11-16
 
   lead-on-public-map:
     text: On the structure and labels of the public map arguments/second-industrialization.yaml, with the truth of its 19 bets drawn at random by label, the {argmap-order} has a {share} of 0.60 or less.
@@ -52,6 +68,22 @@ claims:
       cost: high
       note: The only real map of any size in this repository. Not run when this was written. The file option of the script was tried on an invented toy map only.
       by: claude-fable-5.2
+    predictions:
+      - says: With the truth drawn 1000 times on seed 1, the script prints a shareOfFileOrder of 0.60 or less for the order named exposure, and at least 50 of the 1000 draws are flip maps.
+        how: "Run in this repository, at the commit that recorded this test: node trials/check-order.mts '{\"file\":\"arguments/second-industrialization.yaml\",\"maps\":1000,\"seed\":1}'. Yes when results.exposure.shareOfFileOrder is 0.6 or less and flipMaps is 50 or more. Otherwise no."
+        type: lookup
+        p: 0.4
+        if_true: 0.97
+        if_false: 0.05
+        by: claude-fable-5.2
+        kind: ai
+        made: 2026-11-16
+        due: 2026-11-17
+        rev: 90030c71518b31ca33324c51db30f7ad
+        accepted:
+          - by: claude-fable-5.2
+            kind: ai
+            date: 2026-11-16
 
   labels-track-failure:
     text: On real maps, bets labelled assumed turn out false at 2 or more times the rate of bets labelled observed or corroborated.
@@ -87,6 +119,22 @@ claims:
       cost: medium
       note: argmap reads a label above assumed with no name on it as assumed, so the order cannot use it. With 1 line of support the pilot gave 2.87 checks against 3.19 for file order, a share of 0.90. Not run at 2 lines when this was written.
       by: claude-fable-5.2
+    predictions:
+      - says: Over seeds 1 and 2, with 300 made-up maps each, 2 lines of support and no name on any label, the mean of the 2 values of shareOfFileOrder for the order named exposure is above 0.60.
+        how: "Run in this repository, at the commit that recorded this test: node trials/check-order.mts '{\"maps\":300,\"seed\":1,\"orGroups\":2,\"named\":0}' and the same with seed 2. Take results.exposure.shareOfFileOrder from each run and average the 2. Yes when the average is above 0.6."
+        type: lookup
+        p: 0.62
+        if_true: 0.95
+        if_false: 0.1
+        by: claude-fable-5.2
+        kind: ai
+        made: 2026-11-16
+        due: 2026-11-17
+        rev: 77943957f0875cf15e4910bfd283027e
+        accepted:
+          - by: claude-fable-5.2
+            kind: ai
+            date: 2026-11-16
 
   labels-go-unnamed:
     text: In the public map arguments/second-industrialization.yaml, 9 of the 19 bets carry a label above assumed with no name on it.
@@ -121,6 +169,30 @@ log:
     by: claude-fable-5.2
     did: create
     note: Planted with the trial script, so that every figure in it can be run again by anyone.
+    verdict: contested
+    bets: 7
+    sharp: 6
+  - at: 2026-11-16
+    by: claude-fable-5.2
+    did: predict
+    claim: lead-on-public-map
+    note: "40%: With the truth drawn 1000 times on seed 1, the script prints a shareOfFileOrder of 0.60 or less for the order named exposure, and at least 50 of the 1000 draws are flip maps."
+    verdict: contested
+    bets: 7
+    sharp: 6
+  - at: 2026-11-16
+    by: claude-fable-5.2
+    did: predict
+    claim: unnamed-order-slower
+    note: "62%: Over seeds 1 and 2, with 300 made-up maps each, 2 lines of support and no name on any label, the mean of the 2 values of shareOfFileOrder for the order named exposure is above 0.60."
+    verdict: contested
+    bets: 7
+    sharp: 6
+  - at: 2026-11-16
+    by: claude-fable-5.2
+    did: predict
+    claim: lead-on-made-up-maps
+    note: "93%: On each of seeds 11, 12 and 13, with 300 made-up maps and 2 lines of support, the script prints a shareOfFileOrder of 0.60 or less for the order named exposure."
     verdict: contested
     bets: 7
     sharp: 6
