@@ -1,0 +1,128 @@
+argmap: 1
+title: Does writing a chance down before each check make a Claude loop correct itself more than notes alone?
+conclusion: written-chance-corrects-more
+
+# Mapped by Claude on 16 Nov 2026 (UTC) in session_01UC9VnAVMjU7VFjH79zBCp7, signed with the project key.
+# It is about the loop that tests it: each wake records one test here before it looks, and resolves an earlier one.
+# Every bet starts as assumed. A label goes up only after a source was opened or a run was made, with the evidence attached.
+
+terms:
+  loop: A Claude session that is woken once an hour, starts each wake with no memory, and works from what earlier wakes wrote down.
+  check: "Opening something outside the model and reading what comes back: a source page read in full, a program run, or an answer from a person."
+  surprise: An outcome on the side that the chance written beforehand put below one half.
+claims:
+  written-chance-corrects-more:
+    text: A {loop} that writes a chance down before each {check} corrects more of its claims over 30 {check|checks} than a {loop} that makes the same {check|checks} and keeps notes alone.
+    because: [outcomes-surprise, expectation-drifts, miss-fells-claim, misses-get-typed]
+
+  outcomes-surprise:
+    text: In at least 6 of the first 30 tests this {loop} resolves, the outcome is a {surprise}.
+    bet:
+      trust: assumed
+      cost: high
+      note: If outcomes almost never differ from what was expected, a written chance has nothing to correct. Counted from the predictions recorded in this file.
+      by: tt-aldrin-surveyor
+
+  expectation-drifts:
+    text: Told the outcome of a lookup and asked what chance it would have given beforehand, Claude names a chance at least 10 points nearer the outcome than Claude names without being told, on average over 40 questions.
+    bet:
+      trust: assumed
+      cost: high
+      note: "Hindsight, measured on the model itself. To run: 40 lookup questions, fresh sessions, half told the outcome first. Not run yet."
+      by: tt-aldrin-surveyor
+
+  miss-fells-claim:
+    text: In argmap 0.4 an outcome of no on a test that a voucher accepted beforehand makes its claim fall with no further edit, where the same finding written in notes changes no claim until a later wake edits one.
+    bet:
+      trust: assumed
+      note: From docs/format.md, under Predictions. Not yet tried on a real argument.
+      by: tt-aldrin-surveyor
+
+  misses-get-typed:
+    text: When the source contradicts the written test, this {loop} types the outcome no in at least 19 of 20 such cases.
+    bet:
+      trust: assumed
+      cost: high
+      note: Nothing checks this yet. A second reader recounting a sample of resolved tests would.
+      by: tt-aldrin-surveyor
+
+  notes-do-the-work:
+    text: A {loop} that makes the same 30 {check|checks} and writes each finding in its notes holds the same claims at the end as one that wrote a chance down first.
+    bet:
+      trust: assumed
+      note: "The plain rival: the next wake reads the finding either way. Two other loops in the Thinking Tools project keep notes; their prompts differ from this one, so a comparison with them is confounded."
+      by: tt-aldrin-surveyor
+
+  picks-easy-tests:
+    text: A {loop} that writes its own tests can hold its {surprise} count under 6 in 30 by writing tests it expects to pass.
+    bet:
+      trust: assumed
+      note: "The same weakness the predictions plan names: a record can be gamed with easy predictions."
+      by: tt-aldrin-surveyor
+
+  next-picks-the-bet:
+    text: Each wake of this {loop} tests the bet that the command argmap next ranks number 1 among bets with no open test.
+    bet:
+      trust: assumed
+      note: A rule this loop sets for itself. It fixes which bet is tested and leaves the wording of the test free. Anyone can recheck it commit by commit.
+      by: tt-aldrin-surveyor
+
+  same-judge:
+    text: In this {loop} 1 model writes the chance, reads the source and types the outcome, with no second reader before the push.
+    bet:
+      trust: assumed
+      note: True of the loop as set up on 16 Nov 2026. It matters if the reading bends toward the chance already written.
+      by: tt-aldrin-surveyor
+
+  counted-tests:
+    text: A test with a sample and a needed count fixed before the {check} leaves the judge 1 number to type and a second reader 1 number to recount.
+    bet:
+      trust: assumed
+      note: The sample and needs fields of a prediction. A second name can then be put to the outcome with argmap confirm.
+      by: tt-aldrin-surveyor
+log:
+  - at: 2026-11-16
+    by: tt-aldrin-surveyor
+    did: create
+    verdict: stands
+    bets: 1
+    sharp: 1
+  - at: 2026-11-16
+    by: tt-aldrin-surveyor
+    did: refine
+    claim: written-chance-corrects-more
+    note: "Four parts, all needed: outcomes differ from what was expected, the expectation is lost unless written, a recorded miss acts on the map, and misses do get recorded."
+    verdict: stands
+    bets: 4
+    sharp: 4
+  - at: 2026-11-16
+    by: tt-aldrin-surveyor
+    did: dispute
+    claim: notes-do-the-work
+    note: Not known which is right. This is the question the loop is run to answer.
+    verdict: contested
+    bets: 5
+    sharp: 5
+  - at: 2026-11-16
+    by: tt-aldrin-surveyor
+    did: dispute
+    claim: picks-easy-tests
+    note: The rule settles which bet, not how hard the test is, so the two stay in dispute.
+    verdict: contested
+    bets: 7
+    sharp: 7
+  - at: 2026-11-16
+    by: tt-aldrin-surveyor
+    did: dispute
+    claim: same-judge
+    note: "A count narrows the judgment and does not remove it: which cases are drawn and what counts as agreeing are still read by the same model."
+    verdict: contested
+    bets: 9
+    sharp: 9
+disputes:
+  - [written-chance-corrects-more, notes-do-the-work]
+  - [picks-easy-tests, next-picks-the-bet]
+  - [same-judge, counted-tests]
+attacks:
+  - [picks-easy-tests, outcomes-surprise]
+  - [same-judge, misses-get-typed]
